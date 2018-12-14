@@ -13,12 +13,12 @@ public class ControllerGrabObject : MonoBehaviour
     private GameObject objectInHand;
 
     public SteamVR_Input_Sources HandType;
-
+    /*
     private SteamVR_Controller.Device Controller
     {
         get { return SteamVR_Controller.Input((int)trackedObj.index); }
     }
-
+    */
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -68,7 +68,7 @@ public class ControllerGrabObject : MonoBehaviour
         fx.breakTorque = 20000;
         return fx;
     }
-
+    
     private void ReleaseObject()
     {
         if (GetComponent<FixedJoint>())
@@ -76,16 +76,17 @@ public class ControllerGrabObject : MonoBehaviour
             GetComponent<FixedJoint>().connectedBody = null;
             Destroy(GetComponent<FixedJoint>());
 
-            objectInHand.GetComponent<Rigidbody>().velocity = Controller.velocity;
-            objectInHand.GetComponent<Rigidbody>().angularVelocity = Controller.angularVelocity;
+            //objectInHand.GetComponent<Rigidbody>().velocity = Controller.velocity;
+            //objectInHand.GetComponent<Rigidbody>().angularVelocity = Controller.angularVelocity;
         }
 
         objectInHand = null;
     }
-
+    
     void Update()
     {
-        if (Controller.GetHairTriggerDown())
+        
+        if (SteamVR_Input._default.inActions.GrabPinch.GetState(HandType))
         {
             if (collidingObject)
             {
@@ -93,12 +94,13 @@ public class ControllerGrabObject : MonoBehaviour
             }
         }
 
-        if (Controller.GetHairTriggerUp())
+        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(HandType))
         {
             if (objectInHand)
             {
                 ReleaseObject();
             }
         }
+        
     }
 }

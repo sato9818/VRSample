@@ -38,17 +38,17 @@ public class ViveControllerInputTest : MonoBehaviour
     void Update()
     {
         sources = SteamVR_Input_Source.GetUpdateSources();
-
-        if (SteamVR_Input._default.inActions.GrabGrip.GetStateUp(HandType))
+        
+        if (SteamVR_Input._default.inActions.GrabPinch.GetStateUp(HandType))
         {
             Debug.Log("GrabGrip.GetStateUp");
         }
-        if (SteamVR_Input._default.inActions.GrabGrip.GetStateDown(HandType))
+        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(HandType))
         {
             Debug.Log("GrabGrip.GetStateDown");
         }
-
-        if (SteamVR_Input._default.inActions.GrabGrip.GetState(HandType))
+        
+        if (SteamVR_Input._default.inActions.GrabPinch.GetState(HandType))
         {
             Debug.Log("GrabGrip.GetState = true");
         }
@@ -56,6 +56,7 @@ public class ViveControllerInputTest : MonoBehaviour
         {
             Debug.Log("GrabGrip.GetState = false");
         }
+        /*
         for (int sourceIndex = 0; sourceIndex < sources.Length - 1; sourceIndex++)
         {
             var source = sources[sourceIndex];
@@ -101,6 +102,8 @@ public class ViveControllerInputTest : MonoBehaviour
                 }
 
             }
+            
         }
+        */
     }
 }
