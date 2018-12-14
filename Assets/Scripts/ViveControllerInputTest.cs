@@ -74,7 +74,7 @@ public class ViveControllerInputTest : MonoBehaviour
                         boolNotifier.buttonName = action.GetShortName();
                         boolNotifier.value = actionBoolean.GetState(source);
                         boolNotifier.isLeft = sourceIndex == 0;
-                       // MessageBroker.Default.Publish(boolNotifier);
+                        // MessageBroker.Default.Publish(boolNotifier);
                     }
 
                     //float系 Triggerとか
@@ -85,7 +85,7 @@ public class ViveControllerInputTest : MonoBehaviour
                         singleNotifier.value = actionSingle.GetAxis(source);
                         Debug.Log(singleNotifier.value);
                         singleNotifier.isLeft = sourceIndex == 0;
-                       // MessageBroker.Default.Publish(singleNotifier);
+                        // MessageBroker.Default.Publish(singleNotifier);
                     }
 
                     //facePadとか
@@ -96,7 +96,7 @@ public class ViveControllerInputTest : MonoBehaviour
                         vector2Notifier.value = actionVector2.GetAxis(source);
                         Debug.Log(vector2Notifier.value);
                         vector2Notifier.isLeft = sourceIndex == 0;
-                       // MessageBroker.Default.Publish(vector2Notifier);
+                        // MessageBroker.Default.Publish(vector2Notifier);
                     }
                 }
 
